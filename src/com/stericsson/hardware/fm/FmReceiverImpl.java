@@ -581,12 +581,12 @@ public class FmReceiverImpl extends FmReceiver {
         if (band == null) {
             throw new IllegalArgumentException("Band cannot be null");
         }
-        //try {
-//            mService.startAsync(band);
-        mBand = band;
-        //  } catch (RemoteException ex) {
-        //      Log.e(TAG, "startAsync: RemoteException", ex);
-        // }
+        try {
+            mService.startAsync(band);
+            mBand = band;
+        } catch (RemoteException ex) {
+            Log.e(TAG, "startAsync: RemoteException", ex);
+        }
     }
 
     @Override
@@ -772,11 +772,11 @@ public class FmReceiverImpl extends FmReceiver {
 
     @Override
     public void scanUp() {
-        try {
+        /*try {
             mService.scanUp();
         } catch (RemoteException ex) {
             Log.e(TAG, "scanUp: RemoteException", ex);
-        }
+        }    */
     }
 
     @Override
