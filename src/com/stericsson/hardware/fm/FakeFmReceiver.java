@@ -10,6 +10,8 @@ import java.io.IOException;
 public class FakeFmReceiver extends FmReceiver {
 
 
+    private OnScanListener scanListener;
+
     @Override
     public void startAsync(FmBand band) throws IOException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -107,7 +109,7 @@ public class FakeFmReceiver extends FmReceiver {
 
     @Override
     public void scanUp() {
-        //To change body of implemented methods use File | Settings | File Templates.
+        scanListener.onScan(93500, 1, 1, true);
     }
 
     @Override
@@ -132,7 +134,8 @@ public class FakeFmReceiver extends FmReceiver {
 
     @Override
     public void addOnScanListener(OnScanListener listener) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        scanListener = listener;
+
     }
 
     @Override
